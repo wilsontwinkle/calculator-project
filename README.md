@@ -2,7 +2,7 @@
 
 # 🧮 Scientific Calculator
 
-## About
+## 📖 About
 This is a **web-based scientific calculator** built with **HTML, CSS, and JavaScript**.  
 It supports both **basic and scientific calculations**, offers multiple themes, and includes **keyboard shortcuts** for fast input.
 
