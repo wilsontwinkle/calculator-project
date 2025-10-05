@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="calculator.css">
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+</head>
+<body id="outer-container" class="default">
+
+    <!-- Keyboard Shortcuts -->
+    <div class="keyboard-shortcuts">
+        <button class="keyboard-shortcuts__btn" id="toggle-shortcuts">
+            <i id="open-keyboard-shortcuts" class="fa-solid fa-chevron-down"></i>
+            <i id="close-keyboard-shortcuts" class="fa-solid fa-xmark"></i>
+            Keyboard Shortcuts
+        </button>
+
+        <table class="keyboard-shortcuts__panel hidden" id="shortcuts-panel">
+            <thead>
+                <tr>
+                    <th>Shortcut</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><kbd>*</kbd></td><td>Multiply</td></tr>
+                <tr><td><kbd>/</kbd></td><td>Divide</td></tr>
+                <tr><td><kbd>Enter</kbd></td><td>Equals</td></tr>
+                <tr><td><kbd>Backspace</kbd></td><td>Delete</td></tr>
+                <tr><td><kbd>Escape</kbd></td><td>Clear</td></tr>
+                <tr><td><kbd>Space</kbd></td><td>Scientific Mode</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Calculator -->
+    <div class="calculator">
+        <div class="header">
+            <h1 class="title">Calculator</h1>
+            <button class="theme-toggle" onclick="toggleTheme()">🎨 Theme</button>
+        </div>
+
+        <div class="mode-toggle">
+            <button class="mode-btn active" onclick="setMode('basic')">Basic</button>
+            <button class="mode-btn" onclick="setMode('scientific')">Scientific</button>
+        </div>
+
+        <div class="display">
+            <div class="expression" id="expression"></div>
+            <div class="result" id="result">0</div>
+        </div>
+
+        <div class="scientific-buttons" id="scientificButtons">
+            <button class="btn scientific" onclick="appendFunction('sin(')">sin</button>
+            <button class="btn scientific" onclick="appendFunction('cos(')">cos</button>
+            <button class="btn scientific" onclick="appendFunction('tan(')">tan</button>
+            <button class="btn scientific" onclick="appendFunction('log(')">log</button>
+            <button class="btn scientific" onclick="appendFunction('ln(')">ln</button>
+            <button class="btn scientific" onclick="appendToDisplay('π')">π</button>
+            <button class="btn scientific" onclick="appendToDisplay('e')">e</button>
+            <button class="btn scientific" onclick="appendToDisplay('^')">x^y</button>
+            <button class="btn scientific" onclick="appendFunction('√(')">√</button>
+            <button class="btn scientific" onclick="appendToDisplay('!')" title="Factorial">x!</button>
+        </div>
+
+        <div class="buttons">
+            <button class="btn memory" onclick="memoryClear()">MC</button>
+            <button class="btn memory" onclick="memoryRecall()">MR</button>
+            <button class="btn memory" onclick="memoryAdd()">M+</button>
+            <button class="btn memory" onclick="memorySubtract()">M−</button>
+            <button class="btn clear" onclick="clearDisplay()">C</button>
+            <button class="btn clear" onclick="deleteLast()">⌫</button>
+            <button class="btn operator" onclick="appendToDisplay('/')" title="Divide">÷</button>
+            <button class="btn operator" onclick="appendToDisplay('*')" title="Multiply">×</button>
+            <button class="btn" onclick="appendToDisplay('7')">7</button>
+            <button class="btn" onclick="appendToDisplay('8')">8</button>
+            <button class="btn" onclick="appendToDisplay('9')">9</button>
+            <button class="btn operator" onclick="appendToDisplay('-')">−</button>
+            <button class="btn" onclick="appendToDisplay('4')">4</button>
+            <button class="btn" onclick="appendToDisplay('5')">5</button>
+            <button class="btn" onclick="appendToDisplay('6')">6</button>
+            <button class="btn operator" onclick="appendToDisplay('+')">+</button>
+            <button class="btn" onclick="appendToDisplay('1')">1</button>
+            <button class="btn" onclick="appendToDisplay('2')">2</button>
+            <button class="btn" onclick="appendToDisplay('3')">3</button>
+            <button class="btn equals" onclick="calculate()" rowspan="2">=</button>
+            <button class="btn" onclick="appendToDisplay('0')" style="grid-column: span 2;">0</button>
+            <button class="btn" onclick="appendToDisplay('.')">.</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+
+    <script>
+    // Toggle keyboard shortcuts panel
+    const toggleBtn = document.getElementById('toggle-shortcuts');
+    const panel = document.getElementById('shortcuts-panel');
+    const openIcon = document.getElementById('open-keyboard-shortcuts');
+    const closeIcon = document.getElementById('close-keyboard-shortcuts');
+
+    panel.classList.add('hidden');
+    openIcon.style.display = 'inline';
+    closeIcon.style.display = 'none';
+
+    toggleBtn.addEventListener('click', () => {
+        panel.classList.toggle('hidden');
+
+        if (panel.classList.contains('hidden')) {
+            openIcon.style.display = 'inline';
+            closeIcon.style.display = 'none';
+        } else {
+            openIcon.style.display = 'none';
+            closeIcon.style.display = 'inline';
+        }
+    });
+    </script>
+
+    <script>
+    // Theme handling
+    const themes = ["default", "dark", "light", "ocean", "sunset", "forest", "rose", "cyber"];
+
+    function setTheme(theme) {
+        const body = document.body;
+        body.classList.remove(...themes);
+        body.classList.add(theme);
+    }
+
+    document.querySelectorAll(".theme-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            setTheme(btn.dataset.theme);
+        });
+    });
+    </script>
+
+</body>
+</html>
