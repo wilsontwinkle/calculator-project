@@ -630,3 +630,39 @@ body {
 .rose .btn.clear:hover {
     background: rgba(255, 193, 7, 0.7);
 }
+
+/* ===================== Mobile Responsiveness ===================== */
+@media (max-width: 600px) {
+  .calculator {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .display {
+    font-size: 1.2rem;
+    word-wrap: break-word;
+  }
+
+  .buttons {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+
+  .btn {
+    padding: 14px;
+    font-size: 1rem;
+  }
+
+  .scientific-buttons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .header h1 {
+    font-size: 1.3rem;
+  }
+
+  .theme-toggle {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+}
