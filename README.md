@@ -12,8 +12,7 @@ It supports both **basic and scientific calculations**, offers multiple themes, 
 - **Basic & Scientific Modes** – Switch between regular arithmetic and scientific functions like `sin`, `cos`, `tan`, `log`, `ln`, `√`, and factorial.  
 - **Theme Switcher** – Change the calculator's appearance with themes: default, dark, light, ocean, sunset, forest, rose, and cyber.  
 - **Keyboard Shortcuts** – Use keys like `*`, `/`, `Enter`, `Backspace`, `Escape`, `Shift`, `Space`, `Tab`, and `Shift + Tab`.  
-- **Shortcut Panel** – Click the keyboard icon to view all shortcuts.  
-- **Responsive Design** – Works on both desktop and mobile screens.    
+- **Shortcut Panel** – Click the keyboard icon to view all shortcuts.     
 
 ## ⚡ How to Use
 1. Open `index.html` in a web browser.  
