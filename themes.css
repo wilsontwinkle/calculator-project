@@ -521,22 +521,22 @@ yes
     color: white;
 }
 
-/* ===================== MOBILE FIX FOR DEFAULT THEME ===================== */
-@media (max-width: 768px) {
-  body.default .btn,
-  .default .btn {
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff; /* white text */
-    border: 1px solid rgba(255, 255, 255, 0.25);
-  }
-
-  body.default .btn:hover,
-  .default .btn:hover {
-    background: rgba(255, 255, 255, 0.25);
-  }
-
-  body.default .buttons,
-  .default .buttons {
-    background: rgba(102, 126, 234, 0.4); /* soft purple for button area */
-  }
+/* ===================== FIX: Default Theme Button Visibility (Mobile + Desktop) ===================== */
+body.default .btn,
+.default .btn {
+  background: rgba(102, 126, 234, 0.3) !important; /* soft purple background */
+  color: #fff !important; /* white text for visibility */
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: background 0.3s ease;
 }
+
+body.default .btn:hover,
+.default .btn:hover {
+  background: rgba(118, 75, 162, 0.5) !important; /* darker purple on hover */
+}
+
+body.default .buttons,
+.default .buttons {
+  background: transparent !important; /* keep the calculator clean */
+}
+
