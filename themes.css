@@ -520,3 +520,23 @@ yes
     background: rgba(255, 255, 255, 0.25); /* your desired purple */
     color: white;
 }
+
+/* ===================== MOBILE FIX FOR DEFAULT THEME ===================== */
+@media (max-width: 768px) {
+  body.default .btn,
+  .default .btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff; /* white text */
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  body.default .btn:hover,
+  .default .btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  body.default .buttons,
+  .default .buttons {
+    background: rgba(102, 126, 234, 0.4); /* soft purple for button area */
+  }
+}
